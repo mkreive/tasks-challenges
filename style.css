@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    /* 62%=10px=1rem */
+    font-size: 62.5%;
+    line-height: 1.5;
+    /* text rendering */
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Manrope', sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #d6d6d6;
+    gap: 2rem;
+}
+
+.heading {
+    color: #202020;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.btn {
+    background-color: #ffee32;
+    color: #202020;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.btn:hover {
+    background-color: #ffd100;
+}
