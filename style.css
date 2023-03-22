@@ -53,35 +53,80 @@ h6 {
 }
 
 .wrapper {
+    padding-top: 6rem;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: #d6d6d6;
+    background-color: #f0f0f3;
     gap: 2rem;
 }
 
 .heading {
-    color: #202020;
-    font-size: 2rem;
-    text-transform: uppercase;
+    color: #de86d5;
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: -3px;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.8);
 }
 
-.btn {
-    background-color: #ffee32;
-    color: #202020;
-    padding: 1rem 3rem;
-    font-size: 1rem;
-    border-radius: 0.3rem;
-    letter-spacing: 1px;
-    cursor: pointer;
+.button {
+    display: flex;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    background-color: #f0f0f3;
+    box-shadow: -10px -10px 30px #fff, 10px 10px 30px #aeaec0;
     border: none;
-    text-transform: uppercase;
-    font-weight: 700;
+    cursor: pointer;
+    border-radius: 3rem;
+    padding: 1.1rem 1.6rem;
+    color: #5f5f5e;
+    font-weight: 500;
+    text-align: left;
+    outline: none;
+    position: relative;
+    gap: 6rem;
+    align-items: flex-end;
 }
-.btn:hover {
-    background-color: #ffd100;
+.flip {
+    transition: all 0.2s ease;
+    transform: rotate(180deg);
+}
+
+.active,
+.button:hover {
+    background-color: #ffffffca;
+    height: auto;
+}
+
+.content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 0.4rem;
+    height: 0;
+    overflow: hidden;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.list {
+    color: #5f5f5e;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.list:hover {
+    color: #5e87f7;
 }

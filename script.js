@@ -93,3 +93,59 @@ function isPlainObject(value) {
 }
 
 ////////////////////////////////////////////////////////////
+// Inventory Update
+// Compare and update the inventory stored in a 2D array against a second 2D array of a fresh delivery. Update the current existing inventory item quantities (in arr1). If an item cannot be found, add the new item and quantity into the inventory array. The returned inventory array should be in alphabetical order by item.
+
+function updateInventory(arr1, arr2) {
+    let inventory = arr1;
+    arr2.forEach((product) => {
+        const match = inventory.findIndex((el) => el[1] === product[1]);
+        if (match >= 0) {
+            inventory[match][0] = inventory[match][0] + product[0];
+        } else if (match === -1) {
+            inventory.push(product);
+        } else return;
+    });
+
+    function Comparator(a, b) {
+        if (a[1] < b[1]) return -1;
+        if (a[1] > b[1]) return 1;
+        return 0;
+    }
+    inventory = inventory.sort(Comparator);
+    return inventory;
+}
+
+updateInventory(
+    [
+        [21, 'Bowling Ball'],
+        [2, 'Dirty Sock'],
+        [1, 'Hair Pin'],
+        [5, 'Microphone'],
+    ],
+    [
+        [2, 'Hair Pin'],
+        [3, 'Half-Eaten Apple'],
+        [67, 'Bowling Ball'],
+        [7, 'Toothpaste'],
+    ]
+);
+
+////////////////////////////////////////////////////////////
+// Codepen challenges:  expandable button
+const selectBtn = document.querySelector('.button');
+const content = document.querySelector('.content');
+const arrow = document.querySelector('.arrow');
+
+selectBtn.addEventListener('click', function () {
+    this.classList.toggle('active');
+    if (content.style.height === 'auto') {
+        content.style.height = '0';
+        arrow.classList.toggle('flip');
+    } else {
+        content.style.height = 'auto';
+        arrow.classList.toggle('flip');
+    }
+});
+
+///////////////////////////////////////////////////////////
