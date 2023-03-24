@@ -149,3 +149,26 @@ selectBtn.addEventListener('click', function () {
 });
 
 ///////////////////////////////////////////////////////////
+// Return the number of total permutations of the provided string that don't have repeated consecutive letters. Assume that all characters in the provided string are each unique.
+// For example, aab should return 2 because it has 6 total permutations (aab, aab, aba, aba, baa, baa), but only 2 of them (aba and aba) don't have the same letter (in this case a) repeating.
+
+function permAlone(str) {
+    const string = [...str];
+    let count = 0;
+
+    string.forEach((letter, i) => {
+        let tempString = string.map((n) => n);
+        tempString.splice(i, 1);
+        tempString = [letter, ...tempString];
+        console.log(tempString, letter);
+
+        // for (let i = 0; i < tempString.length; i++) {
+        //     let permStr = tempString;
+        //     if (letter === permStr[i + 1]) count++;
+        //     const theLetter = permStr.slice(i, 1);
+        // }
+    });
+}
+
+permAlone('abc');
+// permAlone('aaa');
