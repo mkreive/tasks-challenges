@@ -154,7 +154,7 @@ selectBtn.addEventListener('click', function () {
 
 function permAlone(str) {
     const string = [...str];
-    let count = 0;
+    const permArr = [];
 
     string.forEach((letter, n) => {
         let tempString = string.map((n) => n);
@@ -162,19 +162,26 @@ function permAlone(str) {
         tempString = [letter, ...tempString];
 
         for (let i = 0; i < string.length; i++) {
-            let theLetter = tempString[i];
+            permArr.push(tempString.toString().replaceAll(',', ''));
             let nextLetter = tempString[i + 1];
-            console.log(tempString);
-
-            if (theLetter != nextLetter && nextLetter) {
-                count++;
-            }
-
             tempString[i] = nextLetter;
-            if (nextLetter != undefined) tempString[i + 1] = letter;
+            if (nextLetter !== undefined) tempString[i + 1] = letter;
         }
     });
-    return count;
+
+    const dataToReject = permArr.filter((arrEl) => {
+        for (let i = 0; i < arrEl.length; i++) {
+            if (arrEl[i] === arrEl[i + 1]) {
+                return arrEl;
+            }
+        }
+    });
+
+    const filteredUniqueArray = permArr.filter(
+        (permutation) => !dataToReject.some((dataToRejectElement) => permutation == dataToRejectElement)
+    );
+
+    return filteredUniqueArray.length;
 }
 
-console.log(permAlone('abcdefa'));
+console.log(permAlone('aabb'));
