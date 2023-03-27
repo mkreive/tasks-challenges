@@ -156,19 +156,25 @@ function permAlone(str) {
     const string = [...str];
     let count = 0;
 
-    string.forEach((letter, i) => {
+    string.forEach((letter, n) => {
         let tempString = string.map((n) => n);
-        tempString.splice(i, 1);
+        tempString.splice(n, 1);
         tempString = [letter, ...tempString];
-        console.log(tempString, letter);
 
-        // for (let i = 0; i < tempString.length; i++) {
-        //     let permStr = tempString;
-        //     if (letter === permStr[i + 1]) count++;
-        //     const theLetter = permStr.slice(i, 1);
-        // }
+        for (let i = 0; i < string.length; i++) {
+            let theLetter = tempString[i];
+            let nextLetter = tempString[i + 1];
+            console.log(tempString);
+
+            if (theLetter != nextLetter && nextLetter) {
+                count++;
+            }
+
+            tempString[i] = nextLetter;
+            if (nextLetter != undefined) tempString[i + 1] = letter;
+        }
     });
+    return count;
 }
 
-permAlone('abc');
-// permAlone('aaa');
+console.log(permAlone('abcdefa'));
