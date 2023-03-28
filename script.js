@@ -189,7 +189,27 @@ selectBtn.addEventListener('click', function () {
 // Given an array arr, find element pairs whose sum equal the second argument arg and return the sum of their indices.
 
 function pairwise(arr, arg) {
-    return arg;
+    const newArr = arr.map((n) => n);
+    let indexSum = 0;
+
+    newArr.forEach((element, i) => {
+        const index = i;
+        newArr[i] = NaN;
+        console.log(newArr);
+        for (let i = 0; i < newArr.length; i++) {
+            const sum = element + newArr[i + 1];
+            if (sum === arg) {
+                indexSum = indexSum + (index + (i + 1));
+                newArr[i + 1] = NaN;
+                return;
+            }
+        }
+    });
+    return indexSum;
 }
 
 pairwise([1, 4, 2, 3, 0, 5], 7);
+// pairwise([1, 3, 2, 4], 4);
+// pairwise([1, 1, 1], 2);
+
+//////////////////////////////////////////////////////////////////
