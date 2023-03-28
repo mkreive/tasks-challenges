@@ -152,36 +152,44 @@ selectBtn.addEventListener('click', function () {
 // Return the number of total permutations of the provided string that don't have repeated consecutive letters. Assume that all characters in the provided string are each unique.
 // For example, aab should return 2 because it has 6 total permutations (aab, aab, aba, aba, baa, baa), but only 2 of them (aba and aba) don't have the same letter (in this case a) repeating.
 
-function permAlone(str) {
-    const string = [...str];
-    const permArr = [];
+// function permAlone(str) {
+//     let regex = /(.)\1+/;
+//     const arr = str.split('');
+//     const permutations = [];
 
-    string.forEach((letter, n) => {
-        let tempString = string.map((n) => n);
-        tempString.splice(n, 1);
-        tempString = [letter, ...tempString];
+//     if (str.match(regex) !== null && str.match(regex)[0] === str) {
+//         return 0;
+//     }
 
-        for (let i = 0; i < string.length; i++) {
-            permArr.push(tempString.toString().replaceAll(',', ''));
-            let nextLetter = tempString[i + 1];
-            tempString[i] = nextLetter;
-            if (nextLetter !== undefined) tempString[i + 1] = letter;
-        }
-    });
+//     arr.forEach((letter, n) => {
+//         let temp = arr.map((n) => n);
+//         temp.splice(n, 1);
+//         temp = [letter, ...temp];
 
-    const dataToReject = permArr.filter((arrEl) => {
-        for (let i = 0; i < arrEl.length; i++) {
-            if (arrEl[i] === arrEl[i + 1]) {
-                return arrEl;
-            }
-        }
-    });
+//         for (let i = 0; i < arr.length; i++) {
+//             let nextLetter = temp[i + 1];
+//             permutations.push(temp.toString().replaceAll(',', ''));
+//             temp[i] = nextLetter;
+//             if (nextLetter) temp[i + 1] = letter;
+//         }
+//     });
 
-    const filteredUniqueArray = permArr.filter(
-        (permutation) => !dataToReject.some((dataToRejectElement) => permutation == dataToRejectElement)
-    );
+//     const filtered = permutations.filter(function (string) {
+//         return !string.match(regex);
+//     });
 
-    return filteredUniqueArray.length;
+//     return filtered.length;
+// }
+
+// console.log(permAlone('aab'));
+// console.log(permAlone('aabb'));
+// permAlone('aab');
+
+//////////////////////////////////////////////////////////////
+// Given an array arr, find element pairs whose sum equal the second argument arg and return the sum of their indices.
+
+function pairwise(arr, arg) {
+    return arg;
 }
 
-console.log(permAlone('aabb'));
+pairwise([1, 4, 2, 3, 0, 5], 7);
