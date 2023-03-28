@@ -188,28 +188,54 @@ selectBtn.addEventListener('click', function () {
 //////////////////////////////////////////////////////////////
 // Given an array arr, find element pairs whose sum equal the second argument arg and return the sum of their indices.
 
-function pairwise(arr, arg) {
-    const newArr = arr.map((n) => n);
-    let indexSum = 0;
+// function pairwise(arr, arg) {
+//     const newArr = arr.map((n) => n);
+//     let indexSum = 0;
 
-    newArr.forEach((element, i) => {
-        const index = i;
-        newArr[i] = NaN;
-        console.log(newArr);
-        for (let i = 0; i < newArr.length; i++) {
-            const sum = element + newArr[i + 1];
-            if (sum === arg) {
-                indexSum = indexSum + (index + (i + 1));
-                newArr[i + 1] = NaN;
-                return;
-            }
-        }
-    });
-    return indexSum;
-}
+//     newArr.forEach((element, i) => {
+//         const index = i;
+//         newArr[i] = NaN;
+//         console.log(newArr);
+//         for (let i = 0; i < newArr.length; i++) {
+//             const sum = element + newArr[i + 1];
+//             if (sum === arg) {
+//                 indexSum = indexSum + (index + (i + 1));
+//                 newArr[i + 1] = NaN;
+//                 return;
+//             }
+//         }
+//     });
+//     return indexSum;
+// }
 
-pairwise([1, 4, 2, 3, 0, 5], 7);
-// pairwise([1, 3, 2, 4], 4);
-// pairwise([1, 1, 1], 2);
+// pairwise([1, 4, 2, 3, 0, 5], 7);
+// // pairwise([1, 3, 2, 4], 4);
+// // pairwise([1, 1, 1], 2);
 
 //////////////////////////////////////////////////////////////////
+// Write a function bubbleSort which takes an array of integers as input and returns an array of these integers in sorted order from least to greatest.
+// bubbleSort should not use the built-in .sort() method.
+
+function bubbleSort(array) {
+    const sortingArr = array.map((n) => n);
+    let i = 0;
+
+    while (i < sortingArr.length) {
+        let temp = '';
+
+        for (let i = 0; i < sortingArr.length; i++) {
+            temp = sortingArr[i];
+
+            if (sortingArr[i] > sortingArr[i + 1]) {
+                sortingArr[i] = sortingArr[i + 1];
+                sortingArr[i + 1] = temp;
+            }
+        }
+        i++;
+    }
+
+    return sortingArr;
+}
+
+bubbleSort([4, 2, 8, 1]);
+bubbleSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
