@@ -216,26 +216,53 @@ selectBtn.addEventListener('click', function () {
 // Write a function bubbleSort which takes an array of integers as input and returns an array of these integers in sorted order from least to greatest.
 // bubbleSort should not use the built-in .sort() method.
 
-function bubbleSort(array) {
-    const sortingArr = array.map((n) => n);
-    let i = 0;
+// function bubbleSort(array) {
+//     const sortingArr = array.map((n) => n);
+//     let i = 0;
 
-    while (i < sortingArr.length) {
-        let temp = '';
+//     while (i < sortingArr.length) {
+//         let temp = '';
 
-        for (let i = 0; i < sortingArr.length; i++) {
-            temp = sortingArr[i];
+//         for (let i = 0; i < sortingArr.length; i++) {
+//             temp = sortingArr[i];
 
-            if (sortingArr[i] > sortingArr[i + 1]) {
-                sortingArr[i] = sortingArr[i + 1];
-                sortingArr[i + 1] = temp;
+//             if (sortingArr[i] > sortingArr[i + 1]) {
+//                 sortingArr[i] = sortingArr[i + 1];
+//                 sortingArr[i + 1] = temp;
+//             }
+//         }
+//         i++;
+//     }
+
+//     return sortingArr;
+// }
+
+// bubbleSort([4, 2, 8, 1]);
+// bubbleSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
+
+////////////////////////////////////////////////////////////////////
+// Instructions: Write a function selectionSort which takes an array of integers as input and returns an array of these integers in sorted order from least to greatest.
+
+function selectionSort(array) {
+    let sortedArr = array.map((x) => x);
+
+    for (let i = 0; i < sortedArr.length; i++) {
+        const temp = sortedArr[i];
+        let smallest = sortedArr[i];
+        let position = i;
+
+        for (let a = i; a < sortedArr.length; a++) {
+            if (sortedArr[a] < smallest) {
+                smallest = sortedArr[a];
+                position = a;
             }
         }
-        i++;
+        sortedArr[i] = smallest;
+        sortedArr[position] = temp;
     }
 
-    return sortingArr;
+    return sortedArr;
 }
 
-bubbleSort([4, 2, 8, 1]);
-bubbleSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
+selectionSort([3, 7, 1, 5, 2]);
+selectionSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
