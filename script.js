@@ -243,26 +243,58 @@ selectBtn.addEventListener('click', function () {
 ////////////////////////////////////////////////////////////////////
 // Instructions: Write a function selectionSort which takes an array of integers as input and returns an array of these integers in sorted order from least to greatest.
 
-function selectionSort(array) {
-    let sortedArr = array.map((x) => x);
+// function selectionSort(array) {
+//     let sortedArr = array.map((x) => x);
 
-    for (let i = 0; i < sortedArr.length; i++) {
-        const temp = sortedArr[i];
-        let smallest = sortedArr[i];
-        let position = i;
+//     for (let i = 0; i < sortedArr.length; i++) {
+//         const temp = sortedArr[i];
+//         let smallest = sortedArr[i];
+//         let position = i;
 
-        for (let a = i; a < sortedArr.length; a++) {
-            if (sortedArr[a] < smallest) {
-                smallest = sortedArr[a];
-                position = a;
-            }
-        }
-        sortedArr[i] = smallest;
-        sortedArr[position] = temp;
-    }
+//         for (let a = i; a < sortedArr.length; a++) {
+//             if (sortedArr[a] < smallest) {
+//                 smallest = sortedArr[a];
+//                 position = a;
+//             }
+//         }
+//         sortedArr[i] = smallest;
+//         sortedArr[position] = temp;
+//     }
 
-    return sortedArr;
-}
+//     return sortedArr;
+// }
 
-selectionSort([3, 7, 1, 5, 2]);
-selectionSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
+// selectionSort([3, 7, 1, 5, 2]);
+// selectionSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
+
+////////////////////////////////////////////////////////////////////
+// Instructions: Write a function insertionSort which takes an array of integers as input and returns an array of these integers in sorted order from least to greatest.
+
+// function insertionSort(array) {
+//     let sortedArr = [];
+
+//     array.forEach((number) => {
+//         if (sortedArr.length === 0) {
+//             sortedArr.push(number);
+//             return;
+//         } else {
+//             for (let i = 0; i < sortedArr.length; i++) {
+//                 if (number < sortedArr[i]) {
+//                     sortedArr.splice(i, 0, number);
+//                     return;
+//                 }
+//                 if (number > sortedArr[i] && !sortedArr[i + 1]) {
+//                     sortedArr.push(number);
+//                     return;
+//                 }
+//             }
+//         }
+//     });
+
+//     return sortedArr;
+// }
+
+// insertionSort([5, 3, 6, 10, 8, 2]);
+
+////////////////////////////////////////////////////////////////////
+// Instructions: Write a function quickSort which takes an array of integers as input and returns an array of these integers in sorted order from least to greatest. While the choice of the pivot value is important, any pivot will do for our purposes here. For simplicity, the first or last element could be used.
