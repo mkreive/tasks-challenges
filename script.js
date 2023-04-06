@@ -298,3 +298,56 @@ selectBtn.addEventListener('click', function () {
 
 ////////////////////////////////////////////////////////////////////
 // Instructions: Write a function quickSort which takes an array of integers as input and returns an array of these integers in sorted order from least to greatest. While the choice of the pivot value is important, any pivot will do for our purposes here. For simplicity, the first or last element could be used.
+
+function quickSort(array) {
+    let sortedArr = [];
+
+    array.forEach((num) => {
+        let start = 0;
+        let end = sortedArr.length - 1;
+        let middleIndex = Math.floor((end - start) / 2);
+
+        if (middleIndex < 0) {
+            sortedArr.push(num);
+        } else if (end === start) {
+            if (sortedArr[middleIndex] > num) {
+                sortedArr.unshift(num);
+            } else {
+                sortedArr.push(num);
+            }
+        } else {
+            console.log('sorted arejus', sortedArr);
+            console.log('vidurio indexas', middleIndex);
+            // while (end > start) {
+            //     end--;
+            // }
+        }
+    });
+
+    return sortedArr;
+}
+
+quickSort([4, 6, 1, 54, 45, 5, 3, 2]);
+
+//     while (end > start) {
+//         console.log(start, end);
+//         if (arr[guessIndex] === target) {
+//             console.log('found at index');
+//             return guessIndex;
+//         } else if (arr[guessIndex] > target) {
+//             //this means our guess was too big. It also means we don't need the end-half of the array.
+//             //we reassign end to our guess. Now our array is halved. We also  reassign guess to the middle of the bottom half of
+//             //our array. Now end just got closer to start and we have narrowed our search
+//             console.log('guess too big && guessIndex', guessIndex);
+//             end = guessIndex;
+//             guessIndex = Math.floor((end + start) / 2) - 1;
+//         } else if (arr[guessIndex] < target) {
+//             //this means our guess was too small we will reset our start to the guess index and look again.
+//             console.log('guess too small && guessIndex', guessIndex);
+//             start = guessIndex;
+//             guessIndex = Math.ceil((end + start) / 2);
+//         } else {
+//             return 'NOT FOUND';
+//         }
+//     }
+// }
