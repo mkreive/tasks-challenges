@@ -322,3 +322,22 @@ function quickSort(array) {
 quickSort([22, 4, 6, 2]);
 
 ////////////////////////////////////////////////////////////////////
+// Instructions: Write a function mergeSort which takes an array of integers as input and returns an array of these integers in sorted order from least to greatest. A good way to implement this is to write one function, for instance merge, which is responsible for merging two sorted arrays, and another function, for instance mergeSort, which is responsible for the recursion that produces single-item arrays to feed into merge. Good luck!
+
+function mergeSort(array) {
+    if (array.length > 1) {
+        const middle = Math.floor(array.length / 2);
+        const leftHalf = array.slice(0, middle);
+        const rightHalf = array.slice(middle);
+
+        const sortedLeftHalf = mergeSort(leftHalf);
+        const sortedRightHalf = mergeSort(rightHalf);
+
+        return merge(sortedLeftHalf, sortedRightHalf);
+    } else {
+        return array;
+    }
+}
+function merge(array) {}
+
+mergeSort([22, 5, 4, 1, 9, 7, 10]);
