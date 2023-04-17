@@ -338,6 +338,22 @@ function mergeSort(array) {
         return array;
     }
 }
-function merge(array) {}
+function merge(leftArr, rightArr) {
+    let i = 0;
+    let j = 0;
+    const mergedArr = [];
 
-mergeSort([22, 5, 4, 1, 9, 7, 10]);
+    while (i < leftArr.length && j < rightArr.length) {
+        if (leftArr[i] < rightArr[j]) {
+            mergedArr.push(leftArr[i]);
+            i++;
+        } else {
+            mergedArr.push(rightArr[j]);
+            j++;
+        }
+    }
+
+    return mergedArr.concat(leftArr.slice(i)).concat(rightArr.slice(j));
+}
+
+console.log(mergeSort([22, 5, 4, 1, 9, 7, 10]));
