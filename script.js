@@ -357,3 +357,9 @@ function merge(leftArr, rightArr) {
 }
 
 console.log(mergeSort([22, 5, 4, 1, 9, 7, 10]));
+
+
+const button = document.querySelector(".button");
+button.addEventListener(e) {
+    alert("Hello!");
+  }
